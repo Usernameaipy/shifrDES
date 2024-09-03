@@ -20,4 +20,4 @@ clean :
 	rm -rf *.o
 	rm -rf $(BUILDDIR)*
 
-rebuild : clen all
+rebuild : clean all

@@ -5,13 +5,10 @@ char* dynamic_array(char* data, int capacity) {
         capacity *= 2;
         char* tmp = realloc(data, capacity * sizeof(char));
         if(tmp!=NULL){
-            if (tmp == NULL) {
-                free(data);
-            } else {
-                data = tmp;
-            }
+            data = tmp;
         }
         else{
+            free(data);
             data=NULL;
         }
     }

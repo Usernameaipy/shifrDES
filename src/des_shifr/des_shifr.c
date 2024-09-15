@@ -6,5 +6,6 @@ void start(void){
     if(message!=NULL){
         char **blocks=division_into_blocks(message);
         delete_matrix(blocks);
+        free(message);
     }
 }

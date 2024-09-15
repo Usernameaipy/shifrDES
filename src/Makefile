@@ -4,8 +4,8 @@ BUILDDIR=../build/
 
 all : des
 
-des : des_shifr.o dynamic.o input.o
-	$(CC) $(CFLAGS) des_shifr.o dynamic.o input.o -o $(BUILDDIR)des
+des : des_shifr.o dynamic.o input.o des_block.o matrix.o
+	$(CC) $(CFLAGS) des_shifr.o dynamic.o input.o des_block.o matrix.o -o $(BUILDDIR)des
 
 des_shifr.o : des_shifr/des_shifr.c des_shifr/des_shifr.h
 	$(CC) $(CFLAGS) -c des_shifr/des_shifr.c -o des_shifr.o
@@ -15,6 +15,12 @@ dynamic.o : input/dynamic.c input/dynamic.h
 
 input.o : input/input.c input/input.h
 	$(CC) $(CFLAGS) -c input/input.c -o input.o
+
+des_block.o : des_shifr/des_block.c des_shifr/des_block.h
+	$(CC) $(CFLAGS) -c des_shifr/des_block.c -o des_block.o
+
+matrix.o : matrix/matrix.c matrix/matrix.h
+	$(CC) $(CFLAGS) -c matrix/matrix.c -o matrix.o
 
 clean :
 	rm -rf *.o

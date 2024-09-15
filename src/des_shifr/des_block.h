@@ -2,7 +2,7 @@
 #define DES_BLOCK_H
 #define BLOCK_SIZE 8
 #include "../matrix/matrix.h"
-char** division_into_blocks(char*);
+char** division_into_blocks(char*, int*);
 #endif
 #ifndef STDIO_H_LIB_H_INT
 #define STDIO_H_LIB_H_INT

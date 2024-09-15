@@ -5,7 +5,7 @@ void start(void){
     message=input(message);
     int num_blocks=0;
     if(message!=NULL){
-        char **blocks=division_into_blocks(message, &num_blocks);
+        uint64_t **blocks=division_into_blocks(message, &num_blocks);
         delete_matrix(blocks);
         free(message);
     }

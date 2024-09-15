@@ -1,9 +1,9 @@
 #include "matrix.h"
 
-char **creat_new_matrix(int num_str, int str) {
+uint64_t **creat_new_matrix(int num_str, int str) {
   int p_trig=0;
-  char **mem_point = malloc(num_str * str * sizeof(char) + num_str * sizeof(char *));
-  char *p_mem = (char *)(mem_point + num_str);
+  uint64_t **mem_point = malloc(num_str * str * sizeof(uint64_t) + num_str * sizeof(uint64_t *));
+  uint64_t *p_mem = (uint64_t *)(mem_point + num_str);
   if (mem_point != NULL) {
     for (int i = 0; i < num_str; i++) {
       mem_point[i] = p_mem + str * i;
@@ -14,7 +14,7 @@ char **creat_new_matrix(int num_str, int str) {
   return (p_trig==0) ? mem_point : NULL;
 }
 
-char **fiil_matrix(char **matrix, char *message, int num_str, int str){
+uint64_t **fiil_matrix(uint64_t **matrix, char *message, int num_str, int str){
     for(int i = 0; i<num_str; i++){
         for(int j = 0; j<str; j++){
             matrix[i][j]=0;
@@ -31,6 +31,6 @@ char **fiil_matrix(char **matrix, char *message, int num_str, int str){
     return matrix;
 }
 
-void delete_matrix(char **matrix){
+void delete_matrix(uint64_t **matrix){
     free(matrix);
 }

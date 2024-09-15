@@ -1,9 +1,3 @@
-#ifndef MATRIX_H
-#define MATRIX_H
-char **creat_new_matrix(int, int);
-char **fiil_matrix(char **, char *, int, int);
-void delete_matrix(char **);
-#endif
 #ifndef STDIO_H_LIB_H_INT
 #define STDIO_H_LIB_H_INT
 #include <stdio.h>
@@ -13,4 +7,10 @@ void delete_matrix(char **);
 #ifndef STRING_H
 #define STRING_H
 #include "string.h"
+#endif
+#ifndef MATRIX_H
+#define MATRIX_H
+uint64_t **creat_new_matrix(int, int);
+uint64_t **fiil_matrix(uint64_t **, char *, int, int);
+void delete_matrix(uint64_t **);
 #endif

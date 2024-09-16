@@ -2,7 +2,7 @@
 #define DES_SHIFR_H
 #include "../input/input.h"
 #include "des_block.h"
-#include "des_IP.h"
+#include "des_IP_FP.h"
 #define KEY_DES "idinaxuy"
 void start(void);
 #endif

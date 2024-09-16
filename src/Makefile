@@ -4,8 +4,8 @@ BUILDDIR=../build/
 
 all : des
 
-des : des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP.o
-	$(CC) $(CFLAGS) des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP.o -o $(BUILDDIR)des
+des : des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o
+	$(CC) $(CFLAGS) des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o -o $(BUILDDIR)des
 
 des_shifr.o : des_shifr/des_shifr.c des_shifr/des_shifr.h
 	$(CC) $(CFLAGS) -c des_shifr/des_shifr.c -o des_shifr.o
@@ -22,8 +22,8 @@ des_block.o : des_shifr/des_block.c des_shifr/des_block.h
 matrix.o : matrix/matrix.c matrix/matrix.h
 	$(CC) $(CFLAGS) -c matrix/matrix.c -o matrix.o
 
-des_IP.o : des_shifr/des_IP.c des_shifr/des_IP.h
-	$(CC) $(CFLAGS) -c des_shifr/des_IP.c -o des_IP.o
+des_IP_FP.o : des_shifr/des_IP_FP.c des_shifr/des_IP_FP.h
+	$(CC) $(CFLAGS) -c des_shifr/des_IP_FP.c -o des_IP_FP.o
 
 clean :
 	rm -rf *.o

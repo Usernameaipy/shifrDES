@@ -6,10 +6,9 @@ void start(void){
     int num_blocks=0;
     if(message!=NULL){
         uint64_t **blocks=division_into_blocks(message, &num_blocks);
+        perm_IP(blocks, num_blocks);
         // for(int i = 0; i<num_blocks; i++){
-        //     for(int j = 0; j<BLOCK_SIZE; j++){
-        //         printf("%ld ", blocks[i][j]);
-        //     }
+        //     printf("%0lX ", blocks[i][0]);
         //     printf("\n");
         // }
         delete_matrix(blocks);

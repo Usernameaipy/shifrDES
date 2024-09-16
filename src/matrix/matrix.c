@@ -30,7 +30,7 @@ void delete_matrix(uint64_t **matrix){
 
 uint64_t join_message_in_matrix(uint8_t * message_8b) {
     uint64_t block;
-    for (uint8_t *p = message_8b; p < message_8b + 8 && *p!='\0'; ++p) {
+    for (uint8_t *p = message_8b; p < message_8b + 8 || *p!='\0'; ++p) {
         block = (block << 8) | *p;
     }
     return block;

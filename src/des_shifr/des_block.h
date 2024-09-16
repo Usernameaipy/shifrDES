@@ -12,5 +12,5 @@
 #define DES_BLOCK_H
 #define BLOCK_SIZE 8
 #include "../matrix/matrix.h"
-uint8_t** division_into_blocks(char*, int*);
+uint64_t** division_into_blocks(uint8_t*, int*);
 #endif

@@ -1,7 +1,7 @@
 #include "input.h"
 
-char* input(char* array){
-    char* arr=calloc(2, sizeof(char));
+uint8_t* input(uint8_t* array){
+    uint8_t* arr=calloc(2, sizeof(uint8_t));
     if(arr!=NULL){
         int size_arr=2;
         int size_array=0;

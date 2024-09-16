@@ -1,9 +1,9 @@
 #include "dynamic.h"
 
-char* dynamic_array(char* data, int capacity) {
+uint8_t* dynamic_array(uint8_t* data, int capacity) {
     if (capacity!=0) {
         capacity *= 2;
-        char* tmp = realloc(data, capacity * sizeof(char));
+        uint8_t* tmp = realloc(data, capacity * sizeof(uint8_t));
         if(tmp!=NULL){
             data = tmp;
         }

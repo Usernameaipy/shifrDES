@@ -10,6 +10,8 @@
 #include "des_block.h"
 #include "des_IP_FP.h"
 #include "des_blocksplit_64_32.h"
+#include "feistel_cipher/feistel_cipher.h"
+#include "keys.h"
 #define KEY_DES "idinaxuy"
 void start(void);
 #endif

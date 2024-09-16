@@ -10,7 +10,7 @@
 #endif
 #ifndef MATRIX_H
 #define MATRIX_H
-uint64_t **creat_new_matrix(int, int);
-uint64_t **fiil_matrix(uint64_t **, char *, int, int);
-void delete_matrix(uint64_t **);
+uint8_t **creat_new_matrix(int, int);
+uint8_t **fiil_matrix(uint8_t **, char *, int, int);
+void delete_matrix(uint8_t **);
 #endif

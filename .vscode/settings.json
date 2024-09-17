@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "string.h": "c",
+        "dynamic.h": "c",
+        "stdio.h": "c",
+        "cstdlib": "c",
+        "feistel_cipher.h": "c",
+        "split_and_print.h": "c"
+    }
+}

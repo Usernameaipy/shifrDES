@@ -4,8 +4,8 @@ BUILDDIR=../build/
 
 all : des
 
-des : des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o des_blocksplit_64_32.o keys.o
-	$(CC) $(CFLAGS) des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o des_blocksplit_64_32.o keys.o -o $(BUILDDIR)des
+des : des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o des_blocksplit_64_32.o keys.o feistel.o split_and_print.o
+	$(CC) $(CFLAGS) des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o des_blocksplit_64_32.o keys.o feistel.o split_and_print.o -o $(BUILDDIR)des
 
 des_shifr.o : des_shifr/des_shifr.c des_shifr/des_shifr.h
 	$(CC) $(CFLAGS) -c des_shifr/des_shifr.c -o des_shifr.o
@@ -30,6 +30,12 @@ des_blocksplit_64_32.o : des_shifr/des_blocksplit_64_32.c des_shifr/des_blockspl
 
 keys.o : des_shifr/keys.c des_shifr/keys.h
 	$(CC) $(CFLAGS) -c des_shifr/keys.c -o keys.o
+
+feistel.o : des_shifr/feistel_cipher/feistel_cipher.c des_shifr/feistel_cipher/feistel_cipher.h
+	$(CC) $(CFLAGS) -c des_shifr/feistel_cipher/feistel_cipher.c -o feistel.o
+
+split_and_print.o : des_shifr/split_and_print.c des_shifr/split_and_print.h
+	$(CC) $(CFLAGS) -c des_shifr/split_and_print.c -o split_and_print.o
 
 clean :
 	rm -rf *.o

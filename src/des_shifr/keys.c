@@ -52,9 +52,9 @@ uint64_t join_28b_56b(uint32_t key_left, uint32_t key_right){
 }
 
 uint64_t finel_key_per(uint64_t key56_orig){
-    uint64_t key56=0;
+    uint64_t key48=0;
     for(int i = 0; i<48; ++i){
-        key56 |= ((key56_orig >> (64 - CP[i])) & 0x01) << (63-i);
+        key48 |= ((key56_orig >> (64 - CP[i])) & 0x01) << (63-i);
     }
-    return key56;
+    return key48;
 }

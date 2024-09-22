@@ -14,7 +14,7 @@ uint8_t* split_64bi_8by(uint64_t** matrix, int num_block){
 
 void print(uint8_t* des_message, int num_blocks){
     for(int i = 0; i<num_blocks*8; ++i){
-        printf("%c", des_message[i]);
+        printf("%d ", des_message[i]);
     }
     printf("\n");
 }

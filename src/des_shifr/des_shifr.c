@@ -4,10 +4,6 @@ void des(void){
     uint8_t* message=NULL;
     message=input(message);
     int num_blocks=0;
-    // for(int i = 0; i<6; i++){
-    //     printf("%d ", message[i]);
-    // }
-    // printf("\n");
     uint8_t *key=copy_key(KEY_DES);
     uint64_t key48_round[16] = {0};
     if(message!=NULL){
@@ -25,6 +21,10 @@ void des(void){
             blocks[j][0]=new_block;
         }
         perm_FP(blocks, num_blocks);
+        // for (int i  = 0; i<4; i++){
+        //     printf("%ld", blocks[i][0]);
+        //     printf("\n");
+        // }
         uint8_t* des_message=split_64bi_8by(blocks, num_blocks);
         print(des_message, num_blocks);
         delete_matrix(blocks);
@@ -33,9 +33,4 @@ void des(void){
         free(key);
     }
     else printf("MEMORY ERROR");
-}
-
-int main(){
-    des();
-    return 0;
 }

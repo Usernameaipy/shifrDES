@@ -5,6 +5,7 @@
         "stdio.h": "c",
         "cstdlib": "c",
         "feistel_cipher.h": "c",
-        "split_and_print.h": "c"
+        "split_and_print.h": "c",
+        "des_shifr.h": "c"
     }
 }

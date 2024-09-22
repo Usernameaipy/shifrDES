@@ -3,7 +3,7 @@
 void round_castling_feistel(uint32_t* left_block , uint32_t* right_block, uint64_t* rounds_keys){
     for(int i = 0; i<16; i++){
         uint32_t temp = *right_block;
-        *right_block=func_F(*right_block, rounds_keys[i]);
+        *right_block=func_F(*right_block, rounds_keys[i]) ^ *left_block;
         *left_block=temp;
     }
     swap(left_block, right_block);
@@ -18,7 +18,7 @@ uint32_t func_F(uint32_t block, uint64_t key_round){
 
 uint64_t perm_round_first(uint32_t block){
     uint64_t new_block=0;
-    for(int j = 0; j<48; ++j){
+    for(uint8_t j = 0; j<48; ++j){
         new_block |= (uint64_t)((block >> (32 - EP[j])) & 0x01) << (63-j);
     }
     return new_block;
@@ -33,7 +33,7 @@ uint32_t substitutions(uint64_t block48){
 
 void split_48_6(uint64_t block48, uint8_t* blocks6){
     for(int i = 0; i<8; ++i){
-        blocks6[i] = (block48 >> (56 - (i*6))) << 2;
+        blocks6[i] = (block48 >> (58 - (i*6))) << 2;
     }
 }
 
@@ -45,7 +45,7 @@ void split_6_4(uint8_t* blocks6, uint8_t* blocks4){
         blocks4[j]=Sbox[i][block2][block4];
         block2=extreme_bits(blocks6[i+1]);
         block4=middle_bits(blocks6[i+1]);
-        blocks4[j]=(blocks4[j] << 4) | Sbox[i][block2][block4];
+        blocks4[j]=(blocks4[j] << 4) | Sbox[i+1][block2][block4];
     }
 }
 
@@ -68,7 +68,7 @@ uint32_t join_4_32(uint8_t* blocks4){
 uint32_t perm_block_F(uint32_t block){
     uint32_t new_block = 0;
     for(uint8_t i = 0; i<32; ++i){
-        new_block |= ((block >> (P[32 - i])) & 0x01) << (31-i);
+        new_block |= ((block >> (32-P[i])) & 0x01) << (31-i);
     }
     return new_block;
 }

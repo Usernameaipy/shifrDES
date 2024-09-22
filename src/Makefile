@@ -4,8 +4,11 @@ BUILDDIR=../build/
 
 all : des
 
-des : des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o des_blocksplit_64_32.o keys.o feistel.o split_and_print.o
-	$(CC) $(CFLAGS) des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o des_blocksplit_64_32.o keys.o feistel.o split_and_print.o -o $(BUILDDIR)des
+des : des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o des_blocksplit_64_32.o keys.o feistel.o split_and_print.o main.o
+	$(CC) $(CFLAGS) des_shifr.o dynamic.o input.o des_block.o matrix.o des_IP_FP.o des_blocksplit_64_32.o keys.o feistel.o split_and_print.o main.o -o $(BUILDDIR)des
+
+main.o : des_shifr/main.c des_shifr/main.h
+	$(CC) $(CFLAGS) -c des_shifr/main.c -o main.o
 
 des_shifr.o : des_shifr/des_shifr.c des_shifr/des_shifr.h
 	$(CC) $(CFLAGS) -c des_shifr/des_shifr.c -o des_shifr.o

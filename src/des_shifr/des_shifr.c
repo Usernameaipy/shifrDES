@@ -21,10 +21,6 @@ void des(void){
             blocks[j][0]=new_block;
         }
         perm_FP(blocks, num_blocks);
-        // for (int i  = 0; i<4; i++){
-        //     printf("%ld", blocks[i][0]);
-        //     printf("\n");
-        // }
         uint8_t* des_message=split_64bi_8by(blocks, num_blocks);
         print(des_message, num_blocks);
         delete_matrix(blocks);

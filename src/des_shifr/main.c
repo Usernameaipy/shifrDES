@@ -1,6 +1,6 @@
 #include "main.h"
 
-int main(){
-    des();
-    return 0;
+int main() {
+  des();
+  return 0;
 }
